@@ -3,3 +3,5 @@ A small framework that facilitates a design by contract approach when writing so
 * preconditions
 * postconditions
 * invariants
+
+Fort more information, check out the [wiki] (https://github.com/jlgconsulting/jlg-codecontract/wiki) section.
