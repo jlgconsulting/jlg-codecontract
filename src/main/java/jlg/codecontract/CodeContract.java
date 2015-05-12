@@ -9,6 +9,31 @@ import java.util.regex.Pattern;
  */
 public class CodeContract {
     /**
+     * Check if the provided object is null
+     *
+     * @param object  the object where the null contract is applied
+     * @param message the custom error message to be written in the runtime exception
+     * @throws CodeContractException in case the object is null
+     */
+    public static void verifyNotNull(Object object, String message) {
+        if (object == null) {
+            throw new CodeContractException(message);
+        }
+    }
+
+    /**
+     * Check if the provided object is null
+     *
+     * @param object the object where the null contract is applied
+     * @throws CodeContractException in case the object is null
+     */
+    public static void verifyNotNull(Object object) {
+        if (object == null) {
+            throw new CodeContractException("Object must not be null.");
+        }
+    }
+
+    /**
      * Check if the provided contract is verified.
      *
      * @param expression the logical condition/argument to check for validity
@@ -68,7 +93,7 @@ public class CodeContract {
      * @throws CodeContractException in case the expression is invalid
      */
     public static void verifyNotEmpty(Collection collection) {
-        if(collection == null){
+        if (collection == null) {
             throw new CodeContractException("Collection must contain elements. Collection must not be null.");
         }
         if (collection.size() == 0) {
@@ -84,7 +109,7 @@ public class CodeContract {
      * @throws CodeContractException in case the expression is invalid
      */
     public static void verifyNotEmpty(Collection collection, String message) {
-        if(collection == null){
+        if (collection == null) {
             throw new CodeContractException(message);
         }
         if (collection.size() == 0) {
